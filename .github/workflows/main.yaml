@@ -7,7 +7,7 @@ on:
 
 jobs:
   setup-and-verify-python:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
