@@ -1,4 +1,4 @@
-name: Python Environment Setup and Verification
+name: python_setup
 
 on:
   push:
