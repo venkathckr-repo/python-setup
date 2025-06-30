@@ -22,12 +22,10 @@ jobs:
 
     - name: Check Python Version
       run: |
-        # Command to verify the installed Python version
         python --version
 
     - name: Run Flake8 Linting
       run: |
-        # Command to verify flake8 installation by checking its version
         flake8 --version
 
     - name: Run Pytest
