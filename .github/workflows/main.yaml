@@ -13,7 +13,7 @@ jobs:
     - name: Set up Python 3.9
       uses: actions/setup-python@v5 # Action to set up a Python environment
       with:
-        python-version: '3.9' # Specify Python version 3.9
+        python-version: '3.9.0' # Specify Python version 3.9
 
     - name: Install Dependencies
       run: |
