@@ -1,31 +1,38 @@
-name: python_setup
+name: Python Environment Setup
 
-on:
-  push:
-    branches:
-      - '**'
+on: [push] # Trigger the workflow on every push to any branch
 
 jobs:
-  setup-and-verify-python:
-    runs-on: self-hosted
+  build:
+    runs-on: self-hosted # Use the latest Ubuntu runner environment
 
     steps:
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
+    - name: Checkout repository
+      uses: actions/checkout@v4 # Action to check out your repository code
 
-      - name: Upgrade pip and install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4 # Action to set up a Python environment
+      with:
+        python-version: '3.9' # Specify Python version 3.9
 
-      - name: Check Python version
-        run: python --version
+    - name: Install Dependencies
+      run: |
+        # Upgrade pip to the latest version
+        python -m pip install --upgrade pip
+        # Install pytest and flake8 packages
+        pip install pytest flake8
 
-      - name: Verify flake8 installation
-        run: flake8 --version
+    - name: Check Python Version
+      run: |
+        # Command to verify the installed Python version
+        python --version
 
-      - name: Verify pytest installation
-        run: pytest --version
+    - name: Run Flake8 Linting
+      run: |
+        # Command to verify flake8 installation by checking its version
+        flake8 --version
 
+    - name: Run Pytest
+      run: |
+        # Command to verify pytest installation by checking its version
+        pytest --version
